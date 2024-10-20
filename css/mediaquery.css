@@ -1,9 +1,11 @@
 @media only screen and (max-width: 600px) {
     body{
-        padding: 10% 5%;
+        padding: 0 5%;
         user-select: none;
     }
-    
+    .container{
+        height: 100% !important;
+    }
     .navbar{
         display: none;
     }
