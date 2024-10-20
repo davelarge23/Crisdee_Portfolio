@@ -1,0 +1,435 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #180C0C;
+    color: #D6D6D6;
+    font-family: "Share Tech Mono", monospace;
+    height: 100vh;                           
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    padding: 0 7%;
+}
+
+#main-content {
+    display: flex; /* Hidden until loading completes */
+    flex-flow: column;
+    justify-content: center;        
+    min-height: 100vh;     
+    height: auto;              
+    
+}
+
+.frame{
+    border: solid 2px #D6D6D6;
+    border-radius: 5px;
+    height: 80%;
+    padding: 2% 5%;
+    display: flex;
+    flex-flow: column;
+    position: relative; /* Set position to relative to position the overlay */
+    overflow-x: hidden; /* Hide overflow to prevent content from showing outside */
+    overflow-y: auto;
+}
+.title{
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 700;
+    font-size: 4rem;
+}
+.title2{
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 500;
+    font-size: 3rem;
+}
+.roles{
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 200;
+}
+
+.navbar{
+    align-self: flex-end !important;
+    margin: 10px 0;
+}
+.navbar ul{
+    display: flex;
+    flex-flow: row;
+    column-gap: 20px;
+}
+.nav-link{
+    cursor: pointer;
+}
+@keyframes highlight {
+    from{
+        text-shadow: 0px 0px 0px white;
+        font-weight: normal;
+    }
+    to{
+        text-shadow: 0px 0px 3px white;
+        font-weight: bold;
+    }
+}
+/*navbar*/
+a{
+    color: #D6D6D6;
+    text-decoration: none;
+    
+}
+a:hover, li:hover{
+    font-weight: bold;
+    animation: all 1s ease-in; 
+}
+a.active {
+    color: rgb(153, 119, 119);
+    font-weight: bold;
+}
+    
+ul{
+    list-style-type: none;
+}
+
+/*container_home*/
+.container{
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    justify-content: space-around;
+    
+}
+.left_section{
+    order: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    row-gap: 40%;
+    height: auto;
+    flex-grow: 4;
+    
+}
+.left_section img{
+    width:  80%;
+}
+.right_section{
+    order: 2;
+    flex-shrink: 2;
+    min-height: 70vh;
+    max-height: 90vh;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+}
+.right_section img{
+    width: 100%;
+}
+.description_title{
+    width: 75%;
+    text-align: justify;
+}
+
+
+.footer{
+    opacity: .5;
+}
+
+
+
+.navbar_mobile{
+    display: none;
+}
+
+
+
+/* Overlay for the transition effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background-color: white; /* White background for the transition */
+    transition: left .7s ease-in-out; /* Smooth transition */
+    z-index: 1; /* Place overlay above content */
+}
+  
+/* State when overlay is sliding in */
+.overlay.show {
+    left: 0; /* Slide in to cover the content */
+}
+
+
+
+
+.contact_icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease; /* Add transition for icon scaling */
+}
+
+.icons {
+    position: relative; /* Make it relative to position child elements */
+    overflow: hidden;   /* Hide overflowing content */
+    min-width: 500px;
+    width: auto;
+}
+
+.link_detail {
+    position: absolute; /* Position the link detail */
+    top: 50%; /* Center vertically */
+    right: -110%; /* Start just outside the right of the icon */
+    transform: translateY(-50%); /* Center vertically */
+    background-color: rgba(0, 0, 0, 0.7); /* Background color */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Add some padding */
+    border-radius: 5px; /* Rounded corners */
+    white-space: nowrap; /* Prevent text from wrapping */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Fully transparent */
+    transition: opacity 0.3s ease, right 0.3s ease; /* Smooth transition */
+}
+
+.icons:hover .contact_icon {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+.icons:hover .link_detail {
+    visibility: visible; /* Make visible on hover */
+    opacity: 1; /* Fade in */
+    right: 10%; /* Slide in from the right */
+    transition: opacity 0.3s ease, right 0.3s ease; /* Smooth transition for position and opacity */
+}
+
+.icons .link_detail {
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Fully transparent */
+    right: -110%; /* Position back to original */
+    transition: opacity 0.3s ease, right 0.3s ease, visibility 0s 0.3s; /* Smooth transition, delay visibility change */
+}
+
+
+.right_section_contacts{
+    order: 2;
+    flex-shrink: 2;
+    min-height: 70vh;
+    max-height: 90vh;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+
+/*Achievements Design*/
+
+.section_achivements{
+    order: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+
+
+}
+.achievements{
+    display: flex;
+    flex-flow: column;
+    width: 75vw;
+    border: solid 2px #D6D6D6;
+    padding: 5px 30px;
+    height: auto; /* Remove any height limitations */
+    transition: all 0.5s ease-in-out;
+}
+.header_ach{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 100%;
+}
+.header_ach img{
+    height: 40px;
+    width: 40px;
+}
+.achievement1{
+    margin-top: 15%;
+}
+.achievement2{
+    margin-top: 1%;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.description_ach{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.description_ach .card{
+    display: flex;
+    flex-flow: column;
+    width: 254px;
+    height: 330px;
+    text-align: center;
+    background-color: rgb(153, 119, 119);
+    border-radius: 5px;
+    padding: 2%;
+    align-items: center;
+}
+.description_ach2{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.description_ach2 .card{
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    height: 330px;
+    text-align: center;
+    background-color: rgb(153, 119, 119);
+    border-radius: 5px;
+    padding: 2%;
+    align-items: center;
+}
+.card img{
+    width: 235px;
+    height: 170px;
+    border-radius: 5px;
+
+}
+.card_title{
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+#collapseButton_ach1{
+    display: none;
+}
+/* Start with description hidden */
+#description_ach {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+/* When expanded, set max-height large enough for the content */
+.description_ach.expand {
+    max-height: auto; /* Large enough to fit the content */
+    padding: 5% 0 40% 0; /* Restore padding when expanded */
+    overflow: visible;
+}
+/* Optional: Hide the section completely when collapsed */
+.achievement1 .header_ach {
+    height: auto;
+    overflow: visible; /* Show all content when expanded */
+}
+
+#collapseButton_ach2{
+    display: none;
+}
+/* Start with description hidden */
+#description_ach2 {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+/* When expanded, set max-height large enough for the content */
+.description_ach2.expand {
+    max-height: auto; /* Large enough to fit the content */
+    padding: 5% 0 50% 0; /* Restore padding when expanded */
+    overflow: visible;
+}
+/* Optional: Hide the section completely when collapsed */
+.achievement2 .header_ach {
+    height: auto;
+    overflow: visible; /* Show all content when expanded */
+}
+
+.achievement2_img img{
+    width: 500px;
+}
+
+.PNSC{
+    background-image: url(../media/pnsc.jpg);
+}
+.TRSC{
+    background-image: url(../media/trsc.jpg);
+
+}
+.TPSC{
+    background-image: url(../media/tpsc.jpg);
+
+}
+
+.school_comp_details{
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    border-left: solid 2px #D6D6D6;
+    padding-left: 10px;
+}
+.comp_item{
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+}
+/*--------------------------------------------*/
+
+
+
+/*PROJECTS CSS*/
+.proj_card{
+    display: flex;
+    flex-flow: row;
+    border: solid 2px #D6D6D6;
+    padding: 2%;
+    gap: 10px;
+}
+.proj_details{
+    width: 100%;
+}
+.proj_title{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.proj_link{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.proj_link img{
+    height: 30px;
+    
+}
+.tech_stack_img{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+.ts_img{
+    height: 50px;
+}
+
+/*Mobile contents*/
+.mobile_content{
+    display: none;
+}
